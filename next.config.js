@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
+	reactStrictMode: true,
+	swcMinify: true,
+	images: {
+		domains: ["auto1-js-task-api--mufasa71.repl.co"],
+	},
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
