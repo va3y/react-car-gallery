@@ -5,3 +5,7 @@
 body {
 	@apply text-text text-14;
 }
+
+a {
+	@apply hover:underline;
+}
