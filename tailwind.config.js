@@ -1,4 +1,5 @@
 const baseSpacing = {
+	0: "0px",
 	8: "0.5rem",
 	12: "0.75rem",
 	24: "1.5rem",
@@ -18,6 +19,7 @@ module.exports = {
 			text: "#4A4A4A",
 			primary: "#EA7F28",
 			"primary-dark": "#D37324",
+			transparent: "transparent",
 		},
 		width: {
 			...baseSpacing,
@@ -41,6 +43,14 @@ module.exports = {
 			18: "1.125rem",
 			14: "0.875rem",
 			12: "0.75rem",
+		},
+		extend: {
+			transitionDelay: {
+				400: "400ms",
+			},
+			maxWidth: {
+				["page-wrapper"]: "800px",
+			},
 		},
 	},
 	plugins: [],

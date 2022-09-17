@@ -18,8 +18,12 @@ export const carApi = createApi({
     getManufacturers: builder.query<GetManufacturersResponse, void>({
       query: () => "manufacturers",
     }),
-    getCarDetails: builder.query<GetCarDetailsResponse, number>({
-      query: (stockNumber) => `manufacturers/${stockNumber}`,
+    /**
+     * This endpoint does nothing, really. 
+     * I will gonna assume it has more info for the page and fetch it.
+     */
+    getCarDetails: builder.query<GetCarDetailsResponse, string>({
+      query: (stockNumber) => `cars/${stockNumber}`,
     }),
   }),
   extractRehydrationInfo(action, { reducerPath }) {

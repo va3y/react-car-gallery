@@ -7,9 +7,7 @@ const PaginationButton: React.FC<
 	return (
 		<button
 			className={cn(
-				"text-primary hover:underline",
-				!props.disabled && "text-primary hover:underline",
-				props.disabled && "text-text opacity-60"
+				props.disabled ? "text-text opacity-60" : "text-primary hover:underline"
 			)}
 			{...props}
 		/>
