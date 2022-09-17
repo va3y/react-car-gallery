@@ -5,6 +5,7 @@ import { RootState } from "../redux/createStore";
 import { Pagination } from "../components/pagination";
 import { carListActions } from "../redux/reducers/carList";
 import { useDispatch, useSelector } from "react-redux";
+import { useSavedCars } from "../hooks/useSavedCars";
 
 export const CarListPage = () => {
 	const dispatch = useDispatch();
@@ -14,6 +15,7 @@ export const CarListPage = () => {
 	};
 
 	const { data, isFetching, error, isLoading } = useGetCarsQuery(carList);
+	const { getIsCarSaved } = useSavedCars();
 
 	const showingCarsCount = Math.min(10, data?.totalCarsCount || 10);
 
@@ -33,7 +35,12 @@ export const CarListPage = () => {
 						</div>
 					)}
 					{data?.cars.map((car) => (
-						<CarCard isFetching={isFetching} {...car} key={car.stockNumber} />
+						<CarCard
+							isSaved={getIsCarSaved(car.stockNumber.toString())}
+							isFetching={isFetching}
+							{...car}
+							key={car.stockNumber}
+						/>
 					))}
 				</div>
 				<Pagination

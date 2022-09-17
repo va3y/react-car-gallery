@@ -34,7 +34,7 @@ module.exports = {
 			input: "2rem",
 			header: "5rem",
 			screen: "100vh",
-			image: "70px",
+			image: "80px",
 		},
 		spacing: baseSpacing,
 		fontFamily: {

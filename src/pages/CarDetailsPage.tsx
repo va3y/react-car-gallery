@@ -1,20 +1,16 @@
 import { RouteComponentProps } from "wouter";
 import { Button } from "../components/ui-kit/button";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useSavedCars } from "../hooks/useSavedCars";
 import { useGetCarDetailsQuery } from "../redux/apis/carApi";
 
 export const CarDetailsPage: React.FC<
 	RouteComponentProps<{ carId: string }>
 > = ({ params: { carId } }) => {
 	const { data, error } = useGetCarDetailsQuery(carId);
-	const [savedCars, setSavedCars] = useLocalStorage<Record<string, boolean>>(
-		`saved-cars`,
-		{}
-	);
-	const isCurrentCarSaved = Boolean(savedCars[carId]);
-	const onSaveCarClick = () => {
-		setSavedCars({ ...savedCars, [carId]: !isCurrentCarSaved });
-	};
+
+	const { getIsCarSaved, toggleSaveCarState } = useSavedCars();
+	const isCurrentCarSaved = getIsCarSaved(carId);
+	const onSaveCarClick = () => toggleSaveCarState(carId);
 
 	return (
 		<div className='w-full max-w-page-wrapper mx-auto flex flex-col md:flex-row md:space-x-24 px-12 mt-24'>

@@ -8,18 +8,18 @@ const loadingClassStr =
 const loadingActiveClassStr =
 	"after:opacity-100 text-transparent after:transition after:duration-300 after:delay-500";
 
-export const CarCard: React.FC<Car & { isFetching: boolean }> = (props) => {
+export const CarCard: React.FC<
+	Car & { isFetching: boolean; isSaved: boolean }
+> = (props) => {
 	const cardPageUrl = `/car/${props.stockNumber}`;
 	const [, setLocation] = useLocation();
-	const onCardClick = () => {
-		setLocation(cardPageUrl);
-	};
+	const onCardClick = () => setLocation(cardPageUrl);
 
 	return (
 		<div
 			onClick={onCardClick}
 			className={cn(
-				"flex p-12 space-x-24 border border-gray group cursor-pointer",
+				"flex p-12 space-x-24 border border-gray group cursor-pointer relative",
 				props.isFetching && "pointer-events-none"
 			)}>
 			<div
@@ -30,7 +30,7 @@ export const CarCard: React.FC<Car & { isFetching: boolean }> = (props) => {
 				)}>
 				<img
 					width='120'
-					height='70'
+					height='80'
 					src={props.pictureUrl}
 					className='object-contain'
 					alt='An car'
@@ -66,6 +66,11 @@ export const CarCard: React.FC<Car & { isFetching: boolean }> = (props) => {
 					View details
 				</Link>
 			</div>
+			{props.isSaved && (
+				<div className='absolute top-8 right-8 text-12 opacity-25'>
+					Saved to favorites
+				</div>
+			)}
 		</div>
 	);
 };
