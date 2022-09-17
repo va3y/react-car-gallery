@@ -2,6 +2,7 @@ const baseSpacing = {
 	8: "0.5rem",
 	12: "0.75rem",
 	24: "1.5rem",
+	full: "100%",
 };
 
 /** @type {import('tailwindcss').Config} */
@@ -22,12 +23,14 @@ module.exports = {
 			...baseSpacing,
 			button: "8rem",
 			input: "12rem",
+			screen: "100vw",
 		},
 		height: {
 			...baseSpacing,
 			button: "2rem",
 			input: "2rem",
 			header: "5rem",
+			screen: "100vh",
 		},
 		spacing: baseSpacing,
 		fontFamily: {
