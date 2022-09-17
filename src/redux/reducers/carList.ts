@@ -1,6 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { SELECT_ALL_COLORS_OPTION, SELECT_ALL_MANUFACTURERS_OPTION } from "../../components/mainPage/filters";
 import { IGetCarsRequestParams } from "../utils/types";
+
+export const SELECT_ALL_COLORS_OPTION = {
+	displayValue: "All colors",
+	value: "",
+};
+
+export const SELECT_ALL_MANUFACTURERS_OPTION = {
+	displayValue: "All manufacturers",
+	value: "",
+};
 
 export interface CarListState extends IGetCarsRequestParams {
 }

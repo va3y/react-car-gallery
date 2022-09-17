@@ -1,12 +1,12 @@
-import { useRouter } from "next/router";
-import { DefaultLayout } from "../../components/layout";
-import { Button } from "../../components/ui-kit/button";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { useGetCarDetailsQuery } from "../../redux/apis/carApi";
+import { RouteComponentProps } from "wouter";
+import { DefaultLayout } from "../components/layout";
+import { Button } from "../components/ui-kit/button";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useGetCarDetailsQuery } from "../redux/apis/carApi";
 
-const CarPage: React.FC = (props) => {
-	const router = useRouter();
-	const carId = router.query.id as string;
+export const CarDetailsPage: React.FC<
+	RouteComponentProps<{ carId: string }>
+> = ({ params: { carId } }) => {
 	const { data } = useGetCarDetailsQuery(carId);
 	const [savedCard, setSavedCard] = useLocalStorage<Record<string, boolean>>(
 		`saved-cars`,
@@ -46,5 +46,3 @@ const CarPage: React.FC = (props) => {
 		</DefaultLayout>
 	);
 };
-
-export default CarPage;

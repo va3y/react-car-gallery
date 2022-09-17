@@ -26,6 +26,7 @@ module.exports = {
 			button: "8rem",
 			input: "12rem",
 			screen: "100vw",
+			image: "120px",
 		},
 		height: {
 			...baseSpacing,
@@ -33,6 +34,7 @@ module.exports = {
 			input: "2rem",
 			header: "5rem",
 			screen: "100vh",
+			image: "70px",
 		},
 		spacing: baseSpacing,
 		fontFamily: {
@@ -49,7 +51,7 @@ module.exports = {
 				400: "400ms",
 			},
 			maxWidth: {
-				["page-wrapper"]: "800px",
+				"page-wrapper": "800px",
 			},
 		},
 	},

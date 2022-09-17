@@ -3,22 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	useGetColorsQuery,
 	useGetManufacturersQuery,
-} from "../../../redux/apis/carApi";
-import { RootState } from "../../../redux/createStore";
-import { carListActions } from "../../../redux/reducers/carList";
-import { capitalizeFirstLetter } from "../../../utils/capitalizeFirstLetters";
-import { Button } from "../../ui-kit/button";
-import { Select } from "../../ui-kit/select";
-
-export const SELECT_ALL_COLORS_OPTION = {
-	displayValue: "All colors",
-	value: "",
-};
-
-export const SELECT_ALL_MANUFACTURERS_OPTION = {
-	displayValue: "All manufacturers",
-	value: "",
-};
+} from "../redux/apis/carApi";
+import { RootState } from "../redux/createStore";
+import {
+	carListActions,
+	SELECT_ALL_COLORS_OPTION,
+	SELECT_ALL_MANUFACTURERS_OPTION,
+} from "../redux/reducers/carList";
+import { capitalizeFirstLetter } from "../utils/capitalizeFirstLetters";
+import { Button } from "./ui-kit/button";
+import { Select } from "./ui-kit/select";
 
 export const Filters = () => {
 	const { data: colors } = useGetColorsQuery(undefined, {

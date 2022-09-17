@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { HYDRATE } from "next-redux-wrapper";
 import { baseQuery } from "../utils/baseQuery";
 import { GetCarDetailsResponse, GetCarsResponse, GetColorsResponse, GetManufacturersResponse, IGetCarsRequestParams } from "../utils/types";
 
@@ -26,11 +25,6 @@ export const carApi = createApi({
       query: (stockNumber) => `cars/${stockNumber}`,
     }),
   }),
-  extractRehydrationInfo(action, { reducerPath }) {
-    if (action.type === HYDRATE) {
-      return action.payload[reducerPath]
-    }
-  },
 });
 
 export const { useGetCarsQuery, useGetCarDetailsQuery, useGetColorsQuery, useGetManufacturersQuery, } = carApi;

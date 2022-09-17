@@ -1,39 +1,19 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Link from "next/link";
-import { CarCard } from "../components/mainPage/carCard";
-import { Filters } from "../components/mainPage/filters";
-import { carApi, useGetCarsQuery } from "../redux/apis/carApi";
-import { GetStaticProps } from "next";
-import { nextReduxWrapper, RootState } from "../redux/createStore";
-import { useDispatch, useSelector } from "react-redux";
-import { Pagination } from "../components/mainPage/pagination";
+import { CarCard } from "../components/carCard";
+import { Filters } from "../components/filters";
+import { useGetCarsQuery } from "../redux/apis/carApi";
+import { RootState } from "../redux/createStore";
+import { Pagination } from "../components/pagination";
 import { carListActions } from "../redux/reducers/carList";
 import { DefaultLayout } from "../components/layout";
+import { useDispatch, useSelector } from "react-redux";
 
-nextReduxWrapper.getStaticProps;
-
-export const getStaticProps: GetStaticProps = nextReduxWrapper.getStaticProps(
-	(store) => async () => {
-		const state = store.getState();
-		store.dispatch(carApi.endpoints.getCars.initiate(state.carList));
-		store.dispatch(carApi.endpoints.getColors.initiate());
-		store.dispatch(carApi.endpoints.getManufacturers.initiate());
-
-		await Promise.all(carApi.util.getRunningOperationPromises());
-		return {
-			props: {},
-		};
-	}
-);
-
-const Home: NextPage = () => {
+export const CarListPage = () => {
 	const dispatch = useDispatch();
 	const carList = useSelector((state: RootState) => state.carList);
+
 	const { data, isFetching } = useGetCarsQuery(carList);
 	const onChangePage = (newPage: number) =>
 		dispatch(carListActions.setPage(newPage));
-
 	const showingCarsCount = Math.min(10, data?.totalCarsCount || 10);
 
 	return (
@@ -60,5 +40,3 @@ const Home: NextPage = () => {
 		</DefaultLayout>
 	);
 };
-
-export default Home;
