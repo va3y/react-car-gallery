@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi,  } from "@reduxjs/toolkit/query/react";
 import { baseQuery } from "../utils/baseQuery";
 import { GetCarDetailsResponse, GetCarsResponse, GetColorsResponse, GetManufacturersResponse, IGetCarsRequestParams } from "../utils/types";
 
@@ -25,6 +25,7 @@ export const carApi = createApi({
       query: (stockNumber) => `cars/${stockNumber}`,
     }),
   }),
+  keepUnusedDataFor: process.env.NODE_ENV === 'test' ? 0 : 60
 });
 
 export const { useGetCarsQuery, useGetCarDetailsQuery, useGetColorsQuery, useGetManufacturersQuery, } = carApi;

@@ -9,8 +9,9 @@ import { useDispatch, useSelector } from "react-redux";
 export const CarListPage = () => {
 	const dispatch = useDispatch();
 	const carList = useSelector((state: RootState) => state.carList);
-	const onChangePage = (newPage: number) =>
+	const onChangePage = (newPage: number) => {
 		dispatch(carListActions.setPage(newPage));
+	};
 
 	const { data, isFetching, error, isLoading } = useGetCarsQuery(carList);
 

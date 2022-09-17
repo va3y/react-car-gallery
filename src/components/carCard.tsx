@@ -33,7 +33,7 @@ export const CarCard: React.FC<Car & { isFetching: boolean }> = (props) => {
 					height='70'
 					src={props.pictureUrl}
 					className='object-contain'
-					alt='An image of a car'
+					alt='An car'
 				/>
 			</div>
 
