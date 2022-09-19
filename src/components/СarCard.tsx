@@ -33,7 +33,7 @@ export const CarCard: React.FC<
 					height='80'
 					src={props.pictureUrl}
 					className='object-contain'
-					alt='An car'
+					alt='A car'
 				/>
 			</div>
 

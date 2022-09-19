@@ -1,5 +1,5 @@
 import { RouteComponentProps } from "wouter";
-import { Button } from "../components/ui-kit/button";
+import { Button } from "../components/ui-kit/Button";
 import { useSavedCars } from "../hooks/useSavedCars";
 import { useGetCarDetailsQuery } from "../redux/apis/carApi";
 

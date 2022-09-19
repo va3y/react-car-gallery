@@ -10,9 +10,9 @@ import {
 	SELECT_ALL_COLORS_OPTION,
 	SELECT_ALL_MANUFACTURERS_OPTION,
 } from "../redux/reducers/carList";
-import { capitalizeFirstLetter } from "../utils/capitalizeFirstLetters";
-import { Button } from "./ui-kit/button";
-import { Select } from "./ui-kit/select";
+import { capitalizeFirstLetter } from "../utils/capitalizeFirstLetter";
+import { Button } from "./ui-kit/Button";
+import { Select } from "./ui-kit/Select";
 
 export const Filters = () => {
 	const { data: colors } = useGetColorsQuery(undefined, {

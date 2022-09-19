@@ -1,8 +1,8 @@
-import { CarCard } from "../components/carCard";
-import { Filters } from "../components/filters";
+import { CarCard } from "../components/СarCard";
+import { Filters } from "../components/Filters";
 import { useGetCarsQuery } from "../redux/apis/carApi";
 import { RootState } from "../redux/createStore";
-import { Pagination } from "../components/pagination";
+import { Pagination } from "../components/Pagination";
 import { carListActions } from "../redux/reducers/carList";
 import { useDispatch, useSelector } from "react-redux";
 import { useSavedCars } from "../hooks/useSavedCars";
